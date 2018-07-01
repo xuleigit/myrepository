@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jsict.repository.formybatis.GroupsDevicesRepositoryFroMyBatis">
+
+    <select id="findGroupIdsByDeviceId" resultType="com.alibaba.fastjson.JSONObject">
+         select GROUP_CONCAT(gd.devices_id) groupIds
+         from group_devices gd
+         where gd.group_id=(
+         SELECT gd2.group_id from group_devices gd2
+         where gd2.devices_id = #{diviceId})
+    </select>
+
+</mapper>

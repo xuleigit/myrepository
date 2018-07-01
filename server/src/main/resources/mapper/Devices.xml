@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jsict.repository.formybatis.DevicesRepositoryForMyBatis">
+
+    <select id="findDevicesByIotDeviceId" resultType="com.jsict.entity.smoke.Devices">
+        select d.* from devices_info di
+        left join devices d
+        on di.aid = d.aid
+        where di.iot_device_id = #{iotDeviceId}
+    </select>
+
+    <select id="findDiviceTelesByDiviceId" resultType="com.alibaba.fastjson.JSONObject">
+        SELECT d.teles,'1' notifi_to_who,d.bind_name,d.bind_tel,d.project_id,d.device_id
+        from devices d
+        where FIND_IN_SET(d.device_Id,#{iotDeviceId}) GROUP BY d.bind_tel
+    </select>
+
+</mapper>
