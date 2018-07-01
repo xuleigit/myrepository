@@ -11,6 +11,6 @@ public interface LockRecordService {
 
     public LockRecord saveOrUpdate(LockRecord lockRecord);
 
-    public LockRecord findBy
+    public LockRecord findByDeviceId(Integer deviceId);
 
 }

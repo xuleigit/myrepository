@@ -153,7 +153,7 @@ public class SubscribeProtocolController {
             String resultCode = (String)reportCmdExecResult_result_map.get("resultCode");
             log.info("下发指令执行结果["+resultCode+"]");
             //更新开锁记录
-            LockRecord lockRecord = lrs.
+            LockRecord lockRecord = lrs.findByDeviceId(devicesInfo.getDeviceId());
         }
     }
 

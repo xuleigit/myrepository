@@ -19,4 +19,9 @@ public class LockRecordServiceImpl implements LockRecordService{
     public LockRecord saveOrUpdate(LockRecord lockRecord) {
         return lockRecordRepository.save(lockRecord);
     }
+
+    @Override
+    public LockRecord findByDeviceId(Integer deviceId) {
+        return lockRecordRepository.findByDeviceId(deviceId);
+    }
 }

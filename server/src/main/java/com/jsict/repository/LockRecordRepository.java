@@ -9,4 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Description:
  */
 public interface LockRecordRepository extends JpaRepository<LockRecord,String> {
+
+    LockRecord findByDeviceId(Integer deviceId);
 }
